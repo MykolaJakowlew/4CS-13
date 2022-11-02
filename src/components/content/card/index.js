@@ -10,7 +10,7 @@ function Card (props) {
    <div className="card-title">{props.title}</div>
    <div className="card-description">{props.description}</div>
    <div className="card-date-section">
-    {props.date} | {props.tag}
+    {props.date} |<span> {props.tag}</span>
    </div>
   </div>
  );
