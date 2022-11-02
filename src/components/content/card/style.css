@@ -35,4 +35,9 @@
   color: rgb(132, 132, 132);
   margin: 10px 10px;
   font-size: 14px;
+  text-transform: uppercase;
+}
+
+.card-date-section > span {
+  cursor: pointer;
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import './style.css';
 import image1 from './imgs/5e4b1a8c95e491e2e6265a89_photo-1441512673622-3eaa1c39ba28.jpg';
 import image2 from './imgs/5e4b1a8c95e491b7e5265a8a_3f4eb74a.jpg';
@@ -37,19 +37,55 @@ function Content () {
    tag: 'Music',
   }
  ];
+
+ const [selectedTag, setSelectedTag] = useState();
+
+ console.log(`selectedTag:${selectedTag}`);
+ // console.log('selectedTag:', selectedTag);
+
+ const tagClick = (tag) => {
+  setSelectedTag(tag);
+ };
+
+ let display;
+ if (selectedTag) {
+  display = 'block';
+ } else {
+  display = 'none';
+ }
+
+ const showCards = cards.filter(card => {
+  if (selectedTag) {
+   return card.tag === selectedTag;
+  }
+  return true;
+ });
+
+ const returnAllPosts = () => {
+  setSelectedTag(null);
+ };
+
  return (
   <div className="content-container">
+   <div
+    className="selected-tag"
+    style={{
+     display: display, // selectedTag ? 'block' : 'none'
+    }}
+   >{selectedTag}</div>
    {
-    cards.map(el => {
+    showCards.map(el => {
      return (<Card
       image={el.image}
       description={el.description}
       title={el.title}
       tag={el.tag}
       date={el.date}
+      tagClick={tagClick}
      />);
     })
    }
+   <div className="return-button" onClick={returnAllPosts}>All posts</div>
   </div>
  );
 }

@@ -10,7 +10,12 @@ function Card (props) {
    <div className="card-title">{props.title}</div>
    <div className="card-description">{props.description}</div>
    <div className="card-date-section">
-    {props.date} |<span> {props.tag}</span>
+    {props.date} |
+    <span
+     onClick={() => props.tagClick(props.tag)}
+    >
+     {props.tag}
+    </span>
    </div>
   </div>
  );
