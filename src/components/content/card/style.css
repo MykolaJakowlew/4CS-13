@@ -3,9 +3,9 @@
   height: fit-content;
   box-sizing: border-box;
   background-color: #fff;
-  border: 2px solid rgb(195, 195, 195);
   border-radius: 10px;
   margin: 20px 0;
+  overflow: hidden;
 }
 
 .card > .card-image {
@@ -14,7 +14,6 @@
   background-size: cover;
   background-position: center;
   transition: 0.05s;
-  border-radius: 10px;
 }
 
 .card > .card-image:hover {
