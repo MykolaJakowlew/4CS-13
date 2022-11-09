@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, Link } from 'react-router-dom';
 import './style.css';
 import Card from './card';
 import mockCards from './mock/data.json';
 import CardArticle from "./card-article";
 
-function Content (props) {
+function Content () {
  const cards = mockCards;
 
  const params = useParams();
@@ -13,12 +13,12 @@ function Content (props) {
 
  const [selectedTag, setSelectedTag] = useState();
  console.log(`selectedTag:${selectedTag}`);
- const [selectedCard, setSelectedCard] = useState(
-  props.type == 'all'
-   ? cards.find(card => card.id == params.cardId)
-   : null
- );
+ const [selectedCard, setSelectedCard] = useState();
  console.log(`selectedCard:`, selectedCard);
+
+ useEffect(() => {
+  setSelectedCard(cards.find(card => card.id == params.cardId));
+ }, [params.cardId]);
 
  const tagClick = (tag) => { setSelectedTag(tag); };
 

@@ -11,7 +11,7 @@ function App () {
       <div className="App">
         <Navigation />
         <Routes>
-          <Route path="/" element={<Content type={'all'}/>} >
+          <Route path="/" element={<Content />} >
             <Route path='/card/:cardId' element={<Content />} />
           </Route>
           <Route path='/about' element={<About />} />
