@@ -1,15 +1,23 @@
 import React, { useState } from "react";
+import { useParams, Link } from 'react-router-dom';
 import './style.css';
 import Card from './card';
 import mockCards from './mock/data.json';
 import CardArticle from "./card-article";
 
-function Content () {
+function Content (props) {
  const cards = mockCards;
+
+ const params = useParams();
+ console.log(params);
 
  const [selectedTag, setSelectedTag] = useState();
  console.log(`selectedTag:${selectedTag}`);
- const [selectedCard, setSelectedCard] = useState();
+ const [selectedCard, setSelectedCard] = useState(
+  props.type == 'all'
+   ? cards.find(card => card.id == params.cardId)
+   : null
+ );
  console.log(`selectedCard:`, selectedCard);
 
  const tagClick = (tag) => { setSelectedTag(tag); };
@@ -46,15 +54,18 @@ function Content () {
    >{selectedTag}</div>
    {
     showCards.map(el => {
-     return (<Card
-      image={el.image}
-      description={el.description}
-      title={el.title}
-      tag={el.tag}
-      date={el.date}
-      tagClick={tagClick}
-      setSelectedCard={() => setSelectedCard(el)}
-     />);
+     return (
+      <Link to={`/card/${el.id}`}>
+       <Card
+        image={el.image}
+        description={el.description}
+        title={el.title}
+        tag={el.tag}
+        date={el.date}
+        tagClick={tagClick}
+        setSelectedCard={() => setSelectedCard(el)}
+       />
+      </Link>);
     })
    }
    {selectedCard && <CardArticle elem={selectedCard} />}

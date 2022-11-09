@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import './style.css';
 import facebook from './imgs/5e4b1a8c95e491addf265a8e_social-03.svg';
 import instagram from './imgs/5e4b1a8c95e491834e265b00_social-07.svg';
@@ -9,16 +10,18 @@ import email from './imgs/5e4b1a8c95e4912fad265ab9_social-30.svg';
 function Navigation () {
  return (
   <nav>
-   <div className="menu-title">Milton</div>
+   <div className="menu-title">
+    <Link to='/'>Milton</Link>
+   </div>
    <hr />
    <div className="menu-text-block">
     Denali is a simple responsive blog template. Easily add new posts using the Editor or change layout and design using the Designer.
    </div>
    <hr />
    <ul className="menu">
-    <li>home</li>
-    <li>about</li>
-    <li>contact</li>
+    <li><Link to='/'>home</Link></li>
+    <li><Link to='/about'>about</Link></li>
+    <li><Link to='/contact'>contact</Link></li>
    </ul>
    <hr />
    <div className="media-icons">
