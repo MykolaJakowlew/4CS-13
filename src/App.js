@@ -1,11 +1,14 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import './App.css';
+import Menu from './components/menu';
+import MyCarousel from './components/carousel';
 
 function App () {
   return (
-      <div className="App">
-        
-      </div>
+    <div className="App">
+      <Menu />
+      <MyCarousel />
+    </div>
   );
 }
 
