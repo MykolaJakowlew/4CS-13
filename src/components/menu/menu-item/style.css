@@ -15,6 +15,7 @@
   position: absolute;
   background-color: black;
   display: none;
+  z-index: 10;
 }
 
 .sub-menu:hover {
