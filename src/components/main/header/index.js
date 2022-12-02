@@ -29,9 +29,7 @@ function Header () {
 
  return (
   <header>
-   <CartContext.Consumer>
-    {() => <Cart />}
-   </CartContext.Consumer>
+   <Cart />
    {userProfile && <div
     onMouseEnter={mouseEnter}
     onMouseLeave={mouseLeave}

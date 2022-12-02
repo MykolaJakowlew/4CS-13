@@ -22,11 +22,11 @@ function Product (props) {
  const { setCart } = useContext(CartContext);
  const addToCart = () => {
   setCart((prevState) => {
-   prevState.products.push(props);
-   return prevState;
-   // return {
-   //  products: [...prevState.products, props]
-   // };
+   // prevState.products.push(props);
+   // return prevState;
+   return {
+    products: [...prevState.products, props]
+   };
   });
  };
 
