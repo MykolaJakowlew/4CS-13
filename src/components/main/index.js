@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import './style.css';
 import { useNavigate } from 'react-router-dom';
 import Header from "./header";
 import Products from "./products";
+import CartContext from "./cartContext";
 
 function MainPage () {
 
@@ -14,11 +15,16 @@ function MainPage () {
    navigate('/login');
   }
  }, []);
+
+ const [cart, setCart] = useState({ products: [] });
+
  return (
   <div className="full-screen bg-main">
-   <Header />
-   This is main page
-   <Products />
+   <CartContext.Provider value={{ cart, setCart }}>
+    <Header />
+    This is main page
+    <Products />
+   </CartContext.Provider>
   </div>
  );
 }

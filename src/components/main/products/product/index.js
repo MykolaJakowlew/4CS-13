@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import CartContext from "../../cartContext";
 import './style.css';
 
 /**
@@ -18,12 +19,25 @@ import './style.css';
  * @returns 
  */
 function Product (props) {
+ const { setCart } = useContext(CartContext);
+ const addToCart = () => {
+  setCart((prevState) => {
+   prevState.products.push(props);
+   return prevState;
+   // return {
+   //  products: [...prevState.products, props]
+   // };
+  });
+ };
 
  return (
   <div className="product">
-   <div>{props.title}</div>
+   <div>title: {props.title}</div>
    <div>category: {props.category}</div>
    <div>price: {props.price}</div>
+   <div className="product-add">
+    <button onClick={addToCart}>Add to card</button>
+   </div>
   </div>
  );
 }

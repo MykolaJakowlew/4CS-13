@@ -1,5 +1,7 @@
 import React, { useRef } from "react";
 import { useNavigate } from 'react-router-dom';
+import CartContext from "../cartContext";
+import Cart from "./cart";
 import './style.css';
 
 function Header () {
@@ -27,6 +29,9 @@ function Header () {
 
  return (
   <header>
+   <CartContext.Consumer>
+    {() => <Cart />}
+   </CartContext.Consumer>
    {userProfile && <div
     onMouseEnter={mouseEnter}
     onMouseLeave={mouseLeave}
