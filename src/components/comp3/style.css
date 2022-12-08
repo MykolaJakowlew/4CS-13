@@ -1,0 +1,7 @@
+.comp3 {
+  width: 100;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  font-size: 30px;
+}
